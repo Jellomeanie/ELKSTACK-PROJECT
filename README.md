@@ -4,7 +4,8 @@ SMU Cyber Security Project 1
 
 The files in this repository were used to configure the network depicted below.
 
-![TODO: Update the path with the name of your diagram](Images/diagram_filename.png)
+<img width="960" alt="2021-09-17" src="https://user-images.githubusercontent.com/90877028/133735036-8cec5440-0781-4f92-ae67-8229a30f9013.png">
+
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
 
@@ -35,8 +36,8 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| TODO     |          |            |                  |
+| Jump Box | Gateway  | 10.0.0.4   | Linux            |
+| TODO     | Websever         |            |                  |
 | TODO     |          |            |                  |
 | TODO     |          |            |                  |
 
