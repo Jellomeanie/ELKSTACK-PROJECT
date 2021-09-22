@@ -7,7 +7,7 @@ The files in this repository were used to configure the network depicted below.
 <img width="960" alt="2021-09-17" src="https://user-images.githubusercontent.com/90877028/133735036-8cec5440-0781-4f92-ae67-8229a30f9013.png">
 
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Ansible file may be used to install only certain pieces of it, such as Filebeat.
 
   - _TODO: Enter the playbook file._
 
@@ -24,10 +24,10 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly _____, in addition to restricting _____ to the network.
+Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
 - _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the logs and system metrics.
 - _TODO: What does Filebeat watch for?_
 - _TODO: What does Metricbeat record?_
 
@@ -37,28 +37,27 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
 | Jump Box | Gateway  | 10.0.0.4   | Linux            |
-| TODO     | Websever         |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
+| Web-1    | Webserver| 10.0.0.5   | Linux            |
+| Web-2    | Webserver| 10.0.0.6   | Linux            |
+| ELK     | Monitoring| 10.0.0.4   | Linux            |
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
+Only the Jump Box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+<Home_Network_IP>
 
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+Machines within the network can only be accessed by Jump Box.
 
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box |     yes             |                      |
-|  Web-1   |  no                 |                      |
-|  Web-2   |   no                |                      |
-|  ELK     |     no              |                      |
+| Jump Box |     yes             | <Home_Network_IP>    |
+|  Web-1   |     no              | 10.0.0.4             |
+|  Web-2   |     no              | 10.0.0.4             |
+|  ELK     |     no              | 10.0.0.4             |
 
 ### Elk Configuration
 
@@ -76,19 +75,23 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+| Name     | IP Addresses |
+|----------|--------------|
+| Web-1    |     yes      | 
+| Web-2    |     no       |
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+Filebeat allows us to forward and centralize log data. The info is forwarded to elasticsearch/logstash thus providing a GUI for easier monitoring.
+Metricbeat provides a way to give info such as metrics from the OS and from services running on a server. It also collects this data and sends it to elasticsearch/logstash.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
+- Copy the  file to /etc/ansible/.
 - Update the _____ file to include...
 - Run the playbook, and navigate to ____ to check that the installation worked as expected.
 
