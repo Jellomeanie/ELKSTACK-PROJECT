@@ -85,7 +85,8 @@ This ELK server is configured to monitor the following machines:
 | Web-2    |   10.0.0.6   |
 
 We have installed the following Beats on these machines:
-
+- **[metricbeat](https://github.com/Jellomeanie/ELKSTACK-PROJECT/blob/main/Ansible/metricbeat-playbook.yml)**
+- **[filebeat](https://github.com/Jellomeanie/ELKSTACK-PROJECT/blob/main/Ansible/filebeat-playbook.yml)**
 
 These Beats allow us to collect the following information from each machine:
 Filebeat allows us to forward and centralize log data. The info is forwarded to elasticsearch/logstash thus providing a GUI for easier monitoring.
