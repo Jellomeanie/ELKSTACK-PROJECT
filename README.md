@@ -92,7 +92,9 @@ We have installed the following Beats on these machines:
 - **[filebeat](https://github.com/Jellomeanie/ELKSTACK-PROJECT/blob/main/Ansible/filebeat-playbook.yml)**
 
 These Beats allow us to collect the following information from each machine:
+
 Filebeat allows us to forward and centralize log data. The info is forwarded to elasticsearch/logstash thus providing a GUI for easier monitoring.
+
 Metricbeat provides a way to give info such as metrics from the OS and from services running on a server. It also collects this data and sends it to elasticsearch/logstash.
 
 ### Using the Playbook
