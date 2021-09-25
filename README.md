@@ -95,13 +95,6 @@ Metricbeat provides a way to give info such as metrics from the OS and from serv
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the  file to /etc/ansible/.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
-
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+- Copy the **[elk-playbook.yml](https://github.com/Jellomeanie/ELKSTACK-PROJECT/blob/main/Ansible/elk-playbook.yml)** file to /etc/ansible/.
+- Update the host file to include web-servers and elk
+- Run the playbook, and navigate to http://<ELK-Public_IP>:5601/app/kibana to check that the installation worked as expected.
